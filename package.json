@@ -25,11 +25,11 @@
     "mocha": "mocha test/ --recursive --exit"
   },
   "dependencies": {
-    "@feathersjs/configuration": "^1.0.1",
-    "@feathersjs/errors": "^3.2.0",
+    "@feathersjs/configuration": "^1.0.2",
+    "@feathersjs/errors": "^3.2.1",
     "@feathersjs/express": "^1.1.2",
-    "@feathersjs/feathers": "^3.0.2",
-    "@feathersjs/socketio": "^3.0.1",
+    "@feathersjs/feathers": "^3.0.5",
+    "@feathersjs/socketio": "^3.0.2",
     "compression": "^1.7.1",
     "cors": "^2.8.4",
     "helmet": "^3.9.0",
