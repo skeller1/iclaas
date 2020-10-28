@@ -1,13 +1,39 @@
-version: '3'
+version: '3.7'
+volumes:
+  db-data:
+    name: db-data
+  web-data:
+    name: web-data
 services:
-  manager:
-    image: node:8-alpine
-    command: npm run start
-    working_dir: /app
-    volumes:
-      - ".:/app"
+  db:
+    container_name: odoo14_db
+    image: postgres:13
     ports:
-      - "3030:3030"
-    user: "${USER_MAPPING:-1000:1000}"
+      - "5080:5432"
     environment:
-      HOME: /app
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+      - POSTGRES_DB=postgres
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - db-data:/var/lib/postgresql/data/pgdata
+    restart: always
+  mailhog:
+    container_name: odoo14_mailhog
+    image: mailhog/mailhog:latest
+    ports:
+      - "8025:8025"
+  web:
+    container_name: odoo14_web
+    image: odoo:14.0
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+    tty: true
+    command: -- --dev=reload --init=contacts
+    volumes:
+      - ./addons:/mnt/extra-addons
+      - ./etc:/etc/odoo
+      - web-data:/var/lib/odoo
+    restart: always
