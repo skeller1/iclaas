@@ -6,7 +6,7 @@ volumes:
     name: web-data
 services:
   db:
-    container_name: odoo14_db
+    container_name: odoo_db
     image: postgres:13
     ports:
       - "5080:5432"
@@ -18,13 +18,21 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data/pgdata
     restart: always
+  pgadmin:
+    container_name: odoo_pgadmin
+    image: dpage/pgadmin4
+    ports:
+      - "8080:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.de
+      - PGADMIN_DEFAULT_PASSWORD=admin
   mailhog:
     container_name: odoo14_mailhog
     image: mailhog/mailhog:latest
     ports:
       - "8025:8025"
   web:
-    container_name: odoo14_web
+    container_name: odoo_web
     image: odoo:14.0
     depends_on:
       - db
