@@ -27,7 +27,7 @@ services:
       - PGADMIN_DEFAULT_EMAIL=admin@admin.de
       - PGADMIN_DEFAULT_PASSWORD=admin
   mailhog:
-    container_name: odoo14_mailhog
+    container_name: odoo_mailhog
     image: mailhog/mailhog:latest
     ports:
       - "8025:8025"
@@ -39,7 +39,7 @@ services:
     ports:
       - "8069:8069"
     tty: true
-    command: -- --dev=reload --init=contacts
+    command: -- --dev=all --init=social_planning
     volumes:
       - ./addons:/mnt/extra-addons
       - ./etc:/etc/odoo
