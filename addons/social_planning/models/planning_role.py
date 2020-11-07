@@ -9,12 +9,16 @@ class PlanningRole(models.Model):
 
 
     def _default_color(self):
-        return "#FF0000"
+        random_number = randint(0,16777215)
+        return '#'+ format(random_number,'x')
 
     active = fields.Boolean('Active', default=True)
+    company_id = fields.Many2one('res.company',required=True)
+    sequence = fields.Integer(default=1)
+
     name = fields.Char(string='Role Name', required=True, translate=True)
     description = fields.Text(translate=True)
-    sequence = fields.Integer(default=1)
+    html_description = fields.Html(string='HTML Description')
     employee_ids = fields.Many2many('hr.employee', 'employee_planning_role_rel', 'planning_role_id', 'emp_id', string='Employees',
         )
 
