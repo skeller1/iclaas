@@ -6,7 +6,6 @@
     'sequence': 50,
     'summary': 'Organize and plan your shifts',
     'depends': [
-        'hr',
         'hr_timesheet',
         'web',
     ],
