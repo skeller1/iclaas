@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <menuitem name="Social Planning"
+            id="menu_main_social_planning"
+            web_icon="social_planning,static/description/icon.png"
+            sequence="25"/>
+
+        <menuitem id="menu_social_planning_schedule" name="Schedule" parent="menu_main_social_planning"
+            action="social_planning_shift_action" sequence="10"/>
+
+        <menuitem id="menu_social_planning_config" name="Configuration" parent="menu_main_social_planning"
+            sequence="100"/>
+
+        <menuitem id="menu_social_planning_roles" name="Social planning roles" parent="menu_social_planning_config"
+            action="social_planning_roles_action" sequence="10"/>
+
+        <menuitem id="menu_social_planning_shift_templates" name="Social planning shift templates" parent="menu_social_planning_config"
+            action="social_planning_shift_templates_action" sequence="20"/>
+</odoo>

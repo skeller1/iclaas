@@ -7,13 +7,18 @@
     'summary': 'Organize and plan your shifts',
     'depends': [
         'hr_timesheet',
-        'web',
+        'project',
+        'web_timeline',
+
     ],
     'description': "",
     'data': [
         # 'security/project_security.xml',
         'security/ir.model.access.csv',
-        'views/social_planning_views.xml',
+        'views/social_planning_role_views.xml',
+        'views/social_planning_shift_template_views.xml',
+        'views/social_planning_shift_views.xml',
+        'views/social_planning_menu_views.xml',
     ],
     # 'demo': ['data/social_planning_demo.xml'],
     #'qweb': ['static/src/xml/social_planning_templates.xml'],

@@ -59,14 +59,4 @@
             </field>
         </record>
 
-        <menuitem name="Social Planning"
-            id="menu_main_social_planning"
-            web_icon="social_planning,static/description/icon.png"
-            sequence="25"/>
-
-        <menuitem id="menu_social_planning_config" name="Configuration" parent="menu_main_social_planning"
-            sequence="100"/>
-
-        <menuitem id="menu_social_planning_roles" name="Social planning roles" parent="menu_social_planning_config"
-            action="social_planning_roles_action" sequence="10"/>
 </odoo>

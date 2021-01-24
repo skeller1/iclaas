@@ -9,11 +9,12 @@ class PlanningRole(models.Model):
 
 
     def _default_color(self):
-        random_number = randint(0,16777215)
-        return '#'+ format(random_number,'x')
+        return '#'+ format(randint(0,16777215),'x')
 
     active = fields.Boolean('Active', default=True)
-    company_id = fields.Many2one('res.company',required=True)
+    company_id = fields.Many2one(
+        'res.company',required=True, default=lambda self: self.env.company
+    )
     sequence = fields.Integer(default=1)
 
     name = fields.Char(string='Role Name', required=True, translate=True)
@@ -23,8 +24,9 @@ class PlanningRole(models.Model):
         )
 
     color = fields.Char(
-    string='Color Index', default=lambda self: self._default_color(),
-    help='Social planning role color.')
+        string='Color Index', default=lambda self: self._default_color(),
+        help='Social planning role color.'
+    )
 
 
     _sql_constraints = [

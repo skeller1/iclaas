@@ -1,3 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-admin_access_social_planning_role,access_social_planning_role,model_planning_role,base.group_user,1,0,0,0
+normal_access_social_planning_role,access_social_planning_role,model_planning_role,base.group_user,1,0,0,0
 admin_access_social_planning_role,access_social_planning_role,model_planning_role,base.group_system,1,1,1,1
+normal_access_social_planning_shift_template,access_social_planning_shift_template,model_planning_slot_template,base.group_user,1,0,0,0
+admin_access_social_planning_shift_template,access_social_planning_shift_template,model_planning_slot_template,base.group_user,1,1,1,1
+normal_access_social_planning_shift,access_social_planning_shift,model_planning_slot,base.group_user,1,1,1,1
