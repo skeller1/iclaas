@@ -78,13 +78,31 @@
         <record id="social_planning_shift_action" model="ir.actions.act_window">
             <field name="name">Social Planning Shift</field>
             <field name="res_model">planning.slot</field>
-            <field name="view_mode">timeline,tree,kanban,form</field>
-            <field name="view_id" ref="social_planning_shift_tree_view"/>
+            <field name="view_mode">timeline,tree,calendar,form</field>
+            <field name="view_id" ref="view_social_planning_shift_timeline"/>
             <field name="help" type="html">
               <p class="o_view_nocontent_smiling_face">
                 No social planning shift found. Let's create one!
               </p>
             </field>
         </record>
+
+
+        <record id="view_social_planning_shift_calendar" model="ir.ui.view">
+        <field name="name">social.planning.shift.calendar</field>
+        <field name="model">planning.slot</field>
+        <field name="arch" type="xml">
+            <calendar string="Shifts" date_start="start_datetime" date_stop="end_datetime"
+                event_open_popup="true"
+                color="employee_id">
+                <field name="employee_id"/>
+                <field name="role_id"/>
+            </calendar>
+                <!-- For recurrence update Dialog -->
+                <!-- <field name="recurrency" invisible="1"/>
+                <field name="recurrence_update" invisible="1"/> -->
+        </field>
+    </record>
+
 
 </odoo>
