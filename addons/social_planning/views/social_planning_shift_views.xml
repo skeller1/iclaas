@@ -40,6 +40,7 @@
               <tree string="Shift List" multi_edit="1" sample="1" editable="bottom">
                               <field name="employee_id" widget="many2one_avatar_employee" optional="show"/>
                               <field name="role_id" optional="show"/>
+                              <field name="color" widget="color"/>
                               <field name="start_datetime" widget="daterange" options="{'related_end_date': 'end_datetime'}"/>
                               <field name="end_datetime" widget="daterange" options="{'related_start_date': 'start_datetime'}"/>
                               <field name="allocated_hours" widget="float_time" readonly="1" />
@@ -62,11 +63,11 @@
                         zoomKey="ctrlKey">
                   <field name="employee_id"/>
                   <field name="role_id"/>
+                  <field name="color"/>
 
                   <templates>
-                      <div t-name="timeline-item">
+                      <div t-name="timeline-item" t-attf-style="background-color: {{ record.color }};">
                           <div t-esc="record.role_id[1]"/>
-                          Assigned to:
                           <span t-esc="record.employee_id[1]"/>
                       </div>
                   </templates>

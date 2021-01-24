@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 from random import randint
 
@@ -25,9 +25,12 @@ class PlanningSlot(models.Model):
     employee_id = fields.Many2one('hr.employee')
     manager_id = fields.Many2one('hr.employee', related="employee_id.parent_id")
     color = fields.Char(
-        string='Color Index', default=lambda self: self._default_color(),
+        string='Color Index',
+        default=lambda self: self._default_color(),
+        related='role_id.color',
         help='Social planning role color.')
 
+    # all records passed the test, don't return anything
     # _sql_constraints = [
     #     ('name_uniq', 'unique (name)', "Social planning role name already exists!"),
     # ]
