@@ -33,7 +33,8 @@ services:
       - "8025:8025"
   web:
     container_name: odoo_web
-    image: odoo:14.0
+    image: iclass_odoo:latest
+    build: .
     depends_on:
       - db
     ports:
