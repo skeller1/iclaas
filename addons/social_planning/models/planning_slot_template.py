@@ -15,8 +15,11 @@ class PlanningSlotTemplate(models.Model):
     project_id = fields.Many2one('project.project')
     role_id = fields.Many2one('planning.role')
     start_time = fields.Float('Start Time', required=True)
+    end_time = fields.Float('End Time', required=True)
     task_id = fields.Many2one('project.task')
 
+    def name_get(self):
+        return [(record.id, self.display_name) for record in self]
     # _sql_constraints = [
     #     ('name_uniq', 'unique (name)', "Social planning role name already exists!"),
     # ]

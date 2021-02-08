@@ -9,18 +9,17 @@
                 <sheet>
                    <group>
                      <group name="General Settings">
-                       <field name="display_name"/>
-                       <field name="employee_id"/>
+                       <!-- <field name="template_autocomplete_ids" invisible="1"/>
+                       <field name="template_id" widget="selection_badge"/> -->
+
                        <field name="role_id"/>
+                       <field name="employee_id"/>
+                       <field name="display_name"/>
                        <field name="company_id" groups="base.group_multi_company"/>
                      </group>
                      <group>
-                      <label for="start_datetime" string="Date"/>
-                      <div class="o_row">
-                        <field name="start_datetime" widget="daterange" options="{&quot;related_end_date&quot;: &quot;end_datetime&quot;}"/>
-                        <i class="fa fa-long-arrow-right mx-2 oe_edit_only" aria-label="Arrow icon" title="Arrow"/>
-                        <field name="end_datetime" widget="daterange" options="{&quot;related_start_date&quot;: &quot;start_datetime&quot;}"/>
-                      </div>
+                        <field name="start_datetime"/>
+                        <field name="end_datetime"/>
                      </group>
 
                    </group>
@@ -37,7 +36,8 @@
             <field name="name">planning.slot.tree</field>
             <field name="model">planning.slot</field>
             <field name="arch" type="xml">
-              <tree string="Shift List" multi_edit="1" sample="1" editable="bottom">
+              <!-- <tree string="Shift List" multi_edit="1" sample="1" editable="bottom"> -->
+              <tree string="Shift List" sample="1">
                               <field name="employee_id" widget="many2one_avatar_employee" optional="show"/>
                               <field name="role_id" optional="show"/>
                               <field name="color" widget="color"/>
@@ -92,17 +92,11 @@
         <field name="name">social.planning.shift.calendar</field>
         <field name="model">planning.slot</field>
         <field name="arch" type="xml">
-            <calendar string="Shifts" date_start="start_datetime" date_stop="end_datetime"
-                event_open_popup="true"
-                color="employee_id">
-                <field name="employee_id"/>
-                <field name="role_id"/>
-            </calendar>
-                <!-- For recurrence update Dialog -->
-                <!-- <field name="recurrency" invisible="1"/>
-                <field name="recurrence_update" invisible="1"/> -->
+          <calendar string="Shifts" date_start="start_datetime" date_stop="end_datetime" event_open_popup="true" mode="month" color="employee_id" quick_add="False">
+             <field name="employee_id" filters="1" />
+             <field name="role_id" filters="1" color="color" />
+          </calendar>
         </field>
     </record>
-
 
 </odoo>

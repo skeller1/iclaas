@@ -19,6 +19,7 @@
         'views/social_planning_shift_template_views.xml',
         'views/social_planning_shift_views.xml',
         'views/social_planning_menu_views.xml',
+        'data/planning_shifts_data.xml',
     ],
     # 'demo': ['data/social_planning_demo.xml'],
     #'qweb': ['static/src/xml/social_planning_templates.xml'],

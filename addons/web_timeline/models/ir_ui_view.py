@@ -10,7 +10,3 @@ class IrUIView(models.Model):
     _inherit = "ir.ui.view"
 
     type = fields.Selection(selection_add=[TIMELINE_VIEW], ondelete={'timeline': 'cascade'})
-
-    # view_mode = fields.Selection(selection_add=[
-    #     ("timeline", "Timeline")
-    # ], ondelete={'timeline': 'cascade'})
