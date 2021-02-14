@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo noupdate="1">
+    <record id="social_planning_role_fd" model="planning.role">
+        <field name="name">Frühdienst</field>
+        <field name="description">Fruehdienst</field>
+        <field name="color">#ff0000</field>
+    </record>
+    <record id="social_planning_role_md" model="planning.role">
+        <field name="name">Mitteldienst</field>
+        <field name="description">Mitteldienst</field>
+        <field name="color">#00ff00</field>
+    </record>
+    <record id="social_planning_role_sd" model="planning.role">
+        <field name="name">Spätdienst</field>
+        <field name="description">Spätdienst</field>
+        <field name="color">000#0000ff</field>
+    </record>
+</odoo>
