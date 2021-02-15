@@ -92,9 +92,9 @@
         <field name="name">social.planning.shift.calendar</field>
         <field name="model">planning.slot</field>
         <field name="arch" type="xml">
-          <calendar string="Shifts" date_start="start_datetime" date_stop="end_datetime" event_open_popup="true" mode="month" color="employee_id" quick_add="False">
-             <field name="employee_id" filters="1" />
-             <field name="role_id" filters="1" color="color" />
+          <calendar string="Shifts" date_start="start_datetime" date_stop="end_datetime" event_open_popup="true" mode="month" quick_add="False">
+              <field name="role_id" filters="1" color="color" />
+              <field name="employee_id" filters="1" widget="many2one_avatar_employee" avatar_field="image_128" />
           </calendar>
         </field>
     </record>

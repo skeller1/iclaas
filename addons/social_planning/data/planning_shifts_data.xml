@@ -13,6 +13,6 @@
     <record id="social_planning_role_sd" model="planning.role">
         <field name="name">Spätdienst</field>
         <field name="description">Spätdienst</field>
-        <field name="color">000#0000ff</field>
+        <field name="color">#0000ff</field>
     </record>
 </odoo>
