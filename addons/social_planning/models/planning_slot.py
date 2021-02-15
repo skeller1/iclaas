@@ -38,14 +38,14 @@ class PlanningSlot(models.Model):
     def get_templates(self):
         return self.env['planning.slot.template'].search([])
 
-    template_autocomplete_ids = fields.Many2many('planning.slot.template', default=get_templates)
+    #template_autocomplete_ids = fields.Many2many('planning.slot.template', default=get_templates)
     # all records passed the test, don't return anything
     # _sql_constraints = [
     #     ('name_uniq', 'unique (name)', "Social planning role name already exists!"),
     # ]
 
     def name_get(self):
-        return [(record.id, self.display_name) for record in self]
+        return [(record.id, record.display_name) for record in self]
 
 
     @api.constrains('display_name')
